@@ -570,9 +570,10 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-  const arr1 = new Set(...arr);
-  return arr1;
+  const arr1 = new Set([...arr]);
+  return [...arr1];
 }
+
 
 /**
  * Groups elements of the specified array by key.
