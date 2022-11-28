@@ -52,7 +52,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}!`
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -81,7 +81,7 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-  return value[0]
+  return value[0];
 }
 
 /**
@@ -155,7 +155,7 @@ function unbracketTag(str) {
  *   'Thunderstruck' => 'THUNDERSTRUCK'
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
-function convertToUpperCase(str)  {
+function convertToUpperCase(str) {
   return str.toUpperCase();
 }
 
@@ -201,39 +201,38 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
- function getRectangleString(width, height) {
+function getRectangleString(width, height) {
   let string = '';
-  for (let i = 0; i < height; i++) {
-  
-  	if (i === 0) {
-      	for (let j = 0; j < width; j++) {
-        	if (j === width - 1) {
-          	string += '┐\n'
-        	} else if (j === 0) {
-          	string += '┌'
-          } else string += '─'
-      	}
-    	} else if (i === height - 1) {
-    	for (let j = 0; j < width; j++) {
-        	if (j === width - 1) {
-          	string += '┘\n'
-        	} else if (j === 0) {
-          string += '└'
-          } else string += '─'
-      	}
-    	}  else {
-    	for (let j = 0; j < width; j++) {
-      	if (j === 0) {
-        	string += '│';
+  for (let i = 0; i < height; i += 1) {
+    if (i === 0) {
+      for (let j = 0; j < width; j += 1) {
+        if (j === width - 1) {
+          string += '┐\n';
+        } else if (j === 0) {
+          string += '┌';
+        } else string += '─';
+      }
+    } else if (i === height - 1) {
+      for (let j = 0; j < width; j += 1) {
+        if (j === width - 1) {
+          string += '┘\n';
+        } else if (j === 0) {
+          string += '└';
+        } else string += '─';
+      }
+    } else {
+      for (let j = 0; j < width; j += 1) {
+        if (j === 0) {
+          string += '│';
         } else if (j === width - 1) {
-        	string += '│\n';
+          string += '│\n';
         } else {
-        	string += ' ';
+          string += ' ';
         }
       }
     }
-    }
-  return string
+  }
+  return string;
 }
 
 
@@ -253,19 +252,19 @@ function extractEmails(str) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
- function encodeToRot13(str) {
-  let arrayOfOurString = str.split('');
-  let originalAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  let ROT13Alphabet = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
-  let newValue = arrayOfOurString.map((el) => {
-  	if (originalAlphabet.includes(el)) {
-    	return el = ROT13Alphabet[originalAlphabet.indexOf(el)];
-    } else if (!originalAlphabet.includes(el)) {
-    	return el
+function encodeToRot13(str) {
+  const array = str.split('');
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const ROT13 = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  const newArray = [];
+  array.forEach((el) => {
+    if (alphabet.includes(el)) {
+      newArray.push(ROT13[alphabet.indexOf(el)]);
+    } else {
+      newArray.push(el);
     }
-  })
-  
-  return newValue.join('');
+  });
+  return newArray.join('');
 }
 
 /**
@@ -281,14 +280,14 @@ function extractEmails(str) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
- function isString(value) {
+function isString(value) {
   if (arguments.length < 1) {
     return false;
-  } else if (typeof value != 'string' && !(value instanceof String)) {
-  	return false;
-  } else  {
-    return true;
   }
+  if (typeof value !== 'string' && !(value instanceof String)) {
+    return false;
+  }
+  return true;
 }
 
 
@@ -317,7 +316,7 @@ function extractEmails(str) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  return ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣','A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦','A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥','A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'].indexOf(value);
+  return ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣', 'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦', 'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥', 'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'].indexOf(value);
 }
 
 

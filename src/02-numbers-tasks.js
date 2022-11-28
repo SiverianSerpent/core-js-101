@@ -20,7 +20,7 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-  return width*height
+  return width * height;
 }
 
 
@@ -36,7 +36,7 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCircleCircumference(radius) {
-  return (2*Math.PI*radius);
+  return (2 * Math.PI * radius);
 }
 
 /**
@@ -52,7 +52,7 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return value1/2 + value2/2
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -71,7 +71,7 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-  return Math.sqrt(Math.pow(x1-x2, 2) + Math.pow(y1-y2, 2));
+  return Math.sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2));
 }
 
 /**
@@ -87,7 +87,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-  return -(b/a);
+  return -(b / a);
 }
 
 
@@ -110,13 +110,11 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  let scalarVectors = x1 * x2 + y1 * y2;
-  let moduleVector1 = Math.sqrt(Math.pow(x1, 2) + Math.pow(y1, 2));
-  let moduleVector2 = Math.sqrt(Math.pow(x2, 2) + Math.pow(y2, 2));
-  let result = Math.acos(scalarVectors / (moduleVector1 * moduleVector2));
+  const scalarVectors = x1 * x2 + y1 * y2;
+  const moduleVector1 = Math.sqrt((x1 ** 2) + (y1 ** 2));
+  const moduleVector2 = Math.sqrt((x2 ** 2) + (y2 ** 2));
+  const result = Math.acos(scalarVectors / (moduleVector1 * moduleVector2));
   return result;
-  
-
 }
 
 /**
@@ -148,7 +146,7 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-  return Number(value)
+  return Number(value);
 }
 
 /**
@@ -165,7 +163,7 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelepipedDiagonal(a, b, c) {
-  return Math.sqrt(Math.pow(a,2) + Math.pow(b,2) + Math.pow(c,2));
+  return Math.sqrt((a ** 2) + (b ** 2) + (c ** 2));
 }
 
 
@@ -187,8 +185,8 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  let arr = Number((num/1000).toFixed(3 - pow).toString().split('').join(''))*1000;
-  return arr
+  const arr = Number((num / 1000).toFixed(3 - pow).toString().split('').join('')) * 1000;
+  return arr;
 }
 
 /**
@@ -209,15 +207,15 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 
-  function isPrime(num) {
-    if (num == 2 || num == 3 || num == 5 || num == 7) {
-      return true;
-    }
-    if (num % 2 == 0 || num % 3 == 0 || num % 5 == 0 || num % 7 == 0) {
-      return false;  
-    }
-    return true
+function isPrime(num) {
+  if (num === 2 || num === 3 || num === 5 || num === 7) {
+    return true;
   }
+  if (num % 2 === 0 || num % 3 === 0 || num % 5 === 0 || num % 7 === 0) {
+    return false;
+  }
+  return true;
+}
 
 
 /**
@@ -236,8 +234,8 @@ function roundToPowerOfTen(num, pow) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  if (Number(value)) return value
-  return def
+  if (Number(value)) return value;
+  return def;
 }
 
 module.exports = {
