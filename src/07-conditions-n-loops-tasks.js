@@ -336,10 +336,33 @@ function toNaryString(/* num, n */) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(/* pathes */) {
-  throw new Error('Not implemented');
-}
+function getCommonDirectoryPath(arr) {
+  const arr1 = [];
+  const resultiveArr = [];
+  const smallestValue = arr.reduce((acc, cur) => acc.concat(cur.length), []);
 
+  const length = Math.min(...smallestValue);
+  const minValue = arr.filter((a) => a.length === length)[0];
+
+  for (let i = 0; i < arr.length; i += 1) {
+    for (let j = 0; j < length; j += 1) {
+      if (arr[i][j] === minValue[j]) {
+        arr1.push(arr[i][j]);
+      } else {
+        break;
+      }
+    }
+    resultiveArr.push(arr1.join(''));
+    arr1.length = 0;
+  }
+
+  let minValue1 = resultiveArr.sort((a, b) => a.length - b.length)[0];
+
+  if (minValue1[minValue1.length - 1] !== '/') {
+    minValue1 = minValue1.split('').slice(0, minValue1.lastIndexOf('/') + 1).join('');
+  }
+  return minValue1;
+}
 
 /**
  * Returns the product of two specified matrixes.
@@ -359,8 +382,22 @@ function getCommonDirectoryPath(/* pathes */) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(/* m1, m2 */) {
-  throw new Error('Not implemented');
+function getMatrixProduct(m1, m2) {
+  let arr = [];
+  let arr1 = [];
+  const arr2 = [];
+  for (let miner = 0; miner < m1.length; miner += 1) {
+    for (let i = 0; i < m1.length; i += 1) {
+      for (let j = 0; j < m1[0].length; j += 1) {
+        arr.push(m1[miner][j] * m2[j][i]);
+      }
+      arr1.push(arr.reduce((a, b) => a + b));
+      arr = [];
+    }
+    arr2.push(arr1);
+    arr1 = [];
+  }
+  return arr2;
 }
 
 
